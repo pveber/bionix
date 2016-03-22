@@ -23,6 +23,8 @@ let
 
     art = callPackage pkgs/art { };
 
+    bowtie = callPackage pkgs/bowtie { };
+
     cisa = callPackage pkgs/cisa { };
 
     htseq = callPackage pkgs/htseq { };
