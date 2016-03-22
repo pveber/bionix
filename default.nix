@@ -25,6 +25,8 @@ let
 
     cisa = callPackage pkgs/cisa { };
 
+    htseq = callPackage pkgs/htseq { };
+
     idba = callPackage pkgs/idba { };
 
     mummer = callPackage pkgs/mummer { };
