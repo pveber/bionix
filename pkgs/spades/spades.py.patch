@@ -1,0 +1,12 @@
+--- spades.py.orig	2016-03-23 17:50:46.701159613 +0100
++++ spades.py	2016-03-23 17:50:53.893225098 +0100
+@@ -611,6 +611,9 @@
+                 dir_util.copy_tree(options_storage.configs_dir, tmp_configs_dir, preserve_times=False)
+             else:
+                 dir_util.copy_tree(os.path.join(spades_home, "configs"), tmp_configs_dir, preserve_times=False)
++                for root, _, files in os.walk(tmp_configs_dir):
++                    for f in files:
++                        os.chmod(os.path.join(root,f), 0o700)
+ 
+         corrected_dataset_yaml_filename = ''
+         if "error_correction" in cfg:

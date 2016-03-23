@@ -11,6 +11,12 @@ stdenv.mkDerivation {
 
   dontUseCmakeConfigure = true;
 
+  patches = [
+    ./spades.py.patch # wrongly assume that some files in share are writable
+  ];
+
+  patchFlags = "-p0";
+
   buildPhase = ''
     sed -i 's/make -j 8/make/g' spades_compile.sh
     ./spades_compile.sh
@@ -20,6 +26,10 @@ stdenv.mkDerivation {
     mkdir -p $out
     cp -r bin $out
     cp -r share $out
+  '';
+
+  postFixup = ''
+    chmod -R u+w $out/share/spades/configs
   '';
 
   meta = {
