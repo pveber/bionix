@@ -25,6 +25,8 @@ let
 
     bowtie = callPackage pkgs/bowtie { };
 
+    bowtie2 = callPackage pkgs/bowtie2 { };
+
     cisa = callPackage pkgs/cisa { };
 
     htseq = callPackage pkgs/htseq { };
