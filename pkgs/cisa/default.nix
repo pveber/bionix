@@ -16,6 +16,7 @@ stdenv.mkDerivation {
   installPhase = ''
     mkdir -p $out/bin
     cp *.py $out/bin
+    cp -r src $out/bin
   '';
 
   meta = {
