@@ -1,4 +1,4 @@
-{stdenv, fetchurl}:
+{stdenv, fetchurl, mummer}:
 
 stdenv.mkDerivation {
   name = "quast-3.2";
@@ -7,16 +7,18 @@ stdenv.mkDerivation {
     sha256 = "00hc73318kzp1h8w0vka8qh6ljzkpipq80wwzbq7jmhqzhj4hlz1";
   };
 
-  buildInputs = [];
+  patches = [
+    ./contigs_analyser.py.patch # force quast to use installed mummer
+  ];
+
+  patchFlags = "-p0";
+
+  propagatedBuildInputs = [mummer];
   dontBuild = true;
 
   installPhase = ''
     mkdir -p $out/bin
     cp -r * $out/bin
-    cd $out/bin
-    echo "#!/bin/sh" > quast
-    echo "python $out/bin/quast.py" >> quast
-    chmod u+x quast
   '';
 
   meta = {

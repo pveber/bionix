@@ -1,0 +1,21 @@
+--- libs/contigs_analyzer.py.orig	2016-03-24 15:47:48.237736804 +0100
++++ libs/contigs_analyzer.py	2016-03-24 16:22:04.420846796 +0100
+@@ -36,7 +36,7 @@
+ 
+ 
+ def bin_fpath(fname):
+-    return os.path.join(mummer_dirpath, fname)
++    return fname
+ 
+ ref_labels_by_chromosomes = {}
+ COMBINED_REF_FNAME = 'combined_reference.fasta'
+@@ -1574,9 +1574,6 @@
+ 
+ 
+ def all_required_binaries_exist(mummer_dirpath):
+-    for required_binary in required_binaries:
+-        if not os.path.isfile(os.path.join(mummer_dirpath, required_binary)):
+-            return False
+     return True
+ 
+ 
