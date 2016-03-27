@@ -9,7 +9,12 @@ stdenv.mkDerivation {
 
   buildInputs = [gsl];
 
-  dontStrip = true;
+  buildPhase = ''
+    make clean # the distribusted archive has compiled binaries inside
+               # we need to clean that and compile again to be sure
+               # to link against nix libraries
+    make
+  '';
 
   meta = {
     description     = "A set of simulation tools to generate synthetic next-generation sequencing reads";
