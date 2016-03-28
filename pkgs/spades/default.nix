@@ -1,4 +1,4 @@
-{stdenv, fetchurl, cmake, bzip2, zlib}:
+{stdenv, fetchurl, cmake, bzip2, python, zlib}:
 
 stdenv.mkDerivation {
   name = "spades-3.6.2";
@@ -7,7 +7,7 @@ stdenv.mkDerivation {
     sha256 = "0pzbc6rq67cr89bgkw7smaxs87vp8bygx21w7l1y2gk20wkpx290";
   };
 
-  buildInputs = [cmake bzip2 zlib];
+  buildInputs = [cmake bzip2 python zlib];
 
   dontUseCmakeConfigure = true;
 
