@@ -1,4 +1,4 @@
-{stdenv, fetchurl}:
+{stdenv, fetchurl, mummer, ncbi_blast, python}:
 
 stdenv.mkDerivation {
   name = "cisa-20140304";
@@ -7,9 +7,13 @@ stdenv.mkDerivation {
     sha256 = "0jy8pf8fvy0pyrvlfm5q5zca95z6pbg3ai38vid00kdp0d6fi79c";
   };
 
-  buildInputs = [];
+  buildInputs = [python];
 
-  dontBuild = true;
+  inherit mummer ncbi_blast python;
+
+  buildPhase = ''
+    sed -i "4i os.environ['PATH'] += os.pathsep + os.pathsep.join([\"$python\"+\"/bin\", \"$mummer\"+\"/bin\", \"$ncbi_blast\"+\"/bin\"])" CISA.py
+  '';
 
   dontStrip = true;
 
