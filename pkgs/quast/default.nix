@@ -1,4 +1,4 @@
-{stdenv, fetchurl, mummer}:
+{stdenv, fetchurl, mummer, python}:
 
 stdenv.mkDerivation {
   name = "quast-3.2";
@@ -13,7 +13,7 @@ stdenv.mkDerivation {
 
   patchFlags = "-p0";
 
-  propagatedBuildInputs = [mummer];
+  propagatedBuildInputs = [mummer python];
   dontBuild = true;
 
   installPhase = ''
