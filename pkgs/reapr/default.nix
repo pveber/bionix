@@ -18,15 +18,19 @@ stdenv.mkDerivation {
     ./install.sh
   '';
 
-  dontStrip = true;
   installPhase = ''
     mkdir -p $out/bin
     mkdir -p $out/bin/third_party
     cp -r reapr src $out/bin
-    cp -r third_party $out/bin
+    cp -r third_party/samtools* $out/bin/third_party
   '';
 
-meta = {
+  postFixup = ''
+    substituteInPlace $out/bin/src/reapr.pl --replace "${perl}/bin/perl" \
+          "${perl}/bin/perl -I${perlPackages.FileCopyLink}/${perl.libPrefix}"
+  '';
+
+  meta = {
     description     = "A universal tool for genome assembly evaluation";
     longDescription = ''REAPR is a tool that evaluates the accuracy of a
     genome assembly using mapped paired end reads, without the use of a
