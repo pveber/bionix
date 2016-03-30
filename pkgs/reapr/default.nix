@@ -26,8 +26,10 @@ stdenv.mkDerivation {
   '';
 
   postFixup = ''
-    substituteInPlace $out/bin/src/reapr.pl --replace "${perl}/bin/perl" \
+    for f in $out/bin/src/*.pl; do # */
+      substituteInPlace $f --replace "${perl}/bin/perl" \
           "${perl}/bin/perl -I${perlPackages.FileCopyLink}/${perl.libPrefix}"
+    done 
   '';
 
   meta = {
