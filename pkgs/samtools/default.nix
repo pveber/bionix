@@ -25,9 +25,8 @@ stdenv.mkDerivation {
   '';
 
   meta = {
-    description     = "An ultrafast memory-efficient short read aligner";
-    longDescription = ''Bowtie is an ultrafast, memory-efficient short read aligner. It aligns short DNA sequences (reads) to the human genome at a rate of over 25 million 35-bp reads per hour. Bowtie indexes the genome with a Burrows-Wheeler index to keep its memory footprint small.'';
-    license     = stdenv.lib.licenses.artistic1;
-    homepage    = http://bowtie-bio.sourceforge.net/index.shtml;
+    description     = "Tools for manipulating next-generation sequencing data";
+    license     = stdenv.lib.licenses.mit;
+    homepage    = https://github.com/samtools/samtools;
   };
 }
