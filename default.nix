@@ -23,6 +23,8 @@ let
 
     art = callPackage pkgs/art { };
 
+    bedtools = callPackage pkgs/bedtools { };
+
     bowtie = callPackage pkgs/bowtie { };
 
     bowtie2 = callPackage pkgs/bowtie2 { };
@@ -42,7 +44,7 @@ let
     reapr = callPackage pkgs/reapr { };
 
     spades = callPackage pkgs/spades { };
-  
+
     velvet = callPackage pkgs/velvet { };
   };
 
