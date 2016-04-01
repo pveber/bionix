@@ -45,6 +45,8 @@ let
 
     ncbi_blast = callPackage pkgs/ncbi-blast { };
 
+    ncbi-ngs = callPackage pkgs/ncbi-ngs { };
+
     quast = callPackage pkgs/quast { };
 
     reapr = callPackage pkgs/reapr { };
