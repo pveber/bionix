@@ -31,6 +31,8 @@ let
 
     cisa = callPackage pkgs/cisa { };
 
+    fastqc = callPackage pkgs/fastqc { };
+
     htseq = callPackage pkgs/htseq { };
 
     idba = callPackage pkgs/idba { };
