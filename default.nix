@@ -49,6 +49,8 @@ let
 
     reapr = callPackage pkgs/reapr { };
 
+    samtools = callPackage pkgs/samtools { };
+
     spades = callPackage pkgs/spades { };
 
     trinity = callPackage pkgs/trinity { };
