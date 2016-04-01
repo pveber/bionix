@@ -39,6 +39,8 @@ let
 
     macs2 = callPackage pkgs/macs2 { };
 
+    meme = callPackage pkgs/meme { };
+
     mummer = callPackage pkgs/mummer { };
 
     ncbi_blast = callPackage pkgs/ncbi-blast { };
