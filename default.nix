@@ -45,6 +45,8 @@ let
 
     spades = callPackage pkgs/spades { };
 
+    trinity = callPackage pkgs/trinity { };
+  
     velvet = callPackage pkgs/velvet { };
   };
 

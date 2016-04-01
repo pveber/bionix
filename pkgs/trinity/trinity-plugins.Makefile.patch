@@ -1,0 +1,12 @@
+--- trinity-plugins/Makefile.orig	2016-03-25 15:22:33.285038636 +0100
++++ trinity-plugins/Makefile	2016-04-01 19:43:42.444808703 +0200
+@@ -26,7 +26,8 @@
+ 
+ samtools:
+ 	tar xvf samtools-0.1.19.tar.bz2
+-	cd samtools-0.1.19 && $(MAKE) ${LTINFO} 
++	sed -i "s/lcurses/lncurses/g" samtools-0.1.19/Makefile
++	cd samtools-0.1.19 && $(MAKE)
+ 	mv samtools-0.1.19/samtools ./BIN/.
+ 
+ jellyfish:
