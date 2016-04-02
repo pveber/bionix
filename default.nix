@@ -47,6 +47,8 @@ let
 
     ncbi-ngs = callPackage pkgs/ncbi-ngs { };
 
+    ncbi-vdb = callPackage pkgs/ncbi-vdb { };
+
     quast = callPackage pkgs/quast { };
 
     reapr = callPackage pkgs/reapr { };
@@ -54,6 +56,8 @@ let
     samtools = callPackage pkgs/samtools { };
 
     spades = callPackage pkgs/spades { };
+
+    sra-tools = callPackage pkgs/sra-tools { };
 
     trinity = callPackage pkgs/trinity { };
   
