@@ -37,6 +37,8 @@ let
 
     idba = callPackage pkgs/idba { };
 
+    kent-tree = callPackage pkgs/kent-tree { };
+
     macs2 = callPackage pkgs/macs2 { };
 
     meme = callPackage pkgs/meme { };
