@@ -59,6 +59,8 @@ let
 
     sra-tools = callPackage pkgs/sra-tools { };
 
+    tophat = callPackage pkgs/tophat { };
+  
     trinity = callPackage pkgs/trinity { };
   
     velvet = callPackage pkgs/velvet { };
