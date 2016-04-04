@@ -23,6 +23,7 @@ stdenv.mkDerivation {
     mkdir -p $out/bin/third_party
     cp -r reapr src $out/bin
     cp -r third_party/samtools* $out/bin/third_party
+    cp -r third_party/smalt_x86_64 $out/bin/third_party
   '';
 
   postFixup = ''
