@@ -1,4 +1,4 @@
-{stdenv, fetchurl, ncurses, perl, perlPackages, zlib}:
+{stdenv, fetchurl, ncurses, perl, perlPackages, rsync, zlib}:
 
 stdenv.mkDerivation {
   name = "reapr-1.0.18";
@@ -7,11 +7,13 @@ stdenv.mkDerivation {
     sha256 = "0q36idj6vd08d3qxi2y6x6b7cyh96ag367bp5qryz2n595dinsbd";
   };
 
-  buildInputs = [ncurses perl perlPackages.FileCopyLink zlib];
+  buildInputs = [ncurses perl perlPackages.FileCopyLink rsync zlib];
 
   preConfigure = ''
     substituteInPlace third_party/samtools/Makefile \
       --replace "lcurses" "lncurses"
+    substituteInPlace src/Makefile \
+      --replace "-rpath,\$(BAMTOOLS_ROOT)/lib" "-rpath,$out/bin/src/bamtools/lib"
   '';
   
   buildPhase = ''
@@ -22,8 +24,18 @@ stdenv.mkDerivation {
     mkdir -p $out/bin
     mkdir -p $out/bin/third_party
     cp -r reapr src $out/bin
-    cp -r third_party/samtools* $out/bin/third_party
-    cp -r third_party/smalt_x86_64 $out/bin/third_party
+    rsync -Rl \
+      reapr \
+      src \
+      third_party/samtools \
+      third_party/samtools-0.1.18/samtools \
+      third_party/smalt_x86_64 \
+      third_party/tabix \
+      third_party/ekg-tabixpp-fbdde77/tabix \
+      third_party/ekg-tabixpp-fbdde77/bgzip \
+      third_party/bamtools \
+      third_party/pezmaster31-bamtools-7f8b301/lib/* \
+      $out/bin
   '';
 
   postFixup = ''
