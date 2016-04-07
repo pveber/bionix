@@ -31,6 +31,8 @@ let
 
     cisa = callPackage pkgs/cisa { };
 
+    fastool = callPackage pkgs/fastool { };
+
     fastqc = callPackage pkgs/fastqc { };
 
     ea-utils = callPackage pkgs/ea-utils { };
