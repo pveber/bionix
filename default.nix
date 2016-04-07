@@ -33,6 +33,8 @@ let
 
     fastqc = callPackage pkgs/fastqc { };
 
+    ea-utils = callPackage pkgs/ea-utils { };
+
     htseq = callPackage pkgs/htseq { };
 
     idba = callPackage pkgs/idba { };
