@@ -1,7 +1,7 @@
 {stdenv, fetchurl, inetutils}:
 
 stdenv.mkDerivation {
-  name = "bowtie-2.2.8";
+  name = "bowtie2-2.2.8";
   src = fetchurl {
     url = https://github.com/BenLangmead/bowtie2/archive/v2.2.8.tar.gz;
     sha256 = "1hbsx30ab065v6a6132j2n7dgxxn3yf26hf3r7ygzpnzg5bmyyg4";
