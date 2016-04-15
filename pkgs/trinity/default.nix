@@ -22,7 +22,7 @@ stdenv.mkDerivation {
   
   installPhase = ''
     mkdir -p $out/bin
-    cp -r Trinity PerlLib Butterfly Chrysalis trinity-plugins $out/bin
+    cp -r Trinity PerlLib Butterfly Chrysalis Inchworm trinity-plugins util $out/bin
   '';
 
   meta = {
